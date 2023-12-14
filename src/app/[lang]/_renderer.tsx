@@ -1,11 +1,24 @@
 "use client";
+
+import { AiFillProject } from "react-icons/ai";
 import { ParallaxSection } from "@/components/ParallaxSection";
 import { LanguageDictionary } from "@/lib/dictionary";
 import { Typewriter } from "nextjs-simple-typewriter";
 import { FaCode } from "react-icons/fa";
-import { Button, Input, Image, Divider } from "@nextui-org/react";
-import ReactPageScroller from "react-page-scroller";
+import {
+  Button,
+  Input,
+  Image,
+  Divider,
+  Card,
+  CardBody,
+  CardHeader,
+  CardFooter,
+  Tooltip,
+} from "@nextui-org/react";
 import { useEffect, useState } from "react";
+import { PageScrollHandler } from "@/components/PageScrollHandler";
+import { toast } from "sonner";
 
 export function SlidesPortfolio({
   params: { dictionary },
@@ -19,13 +32,10 @@ export function SlidesPortfolio({
     console.log(currentPage);
   }, [currentPage]);
   return (
-    <ReactPageScroller
-      customPageNumber={currentPage}
-      pageOnChange={setCurrentPage}
-    >
+    <PageScrollHandler>
       <ParallaxSection sectionID="home">
         <div className="container">
-          <main className="flex h-screen w-full items-center justify-center flex-col">
+          <main className="flex min-h-screen w-full items-center justify-center flex-col">
             <div className="flex min-w-full flex-col items-center justify-between xl:flex-row-reverse">
               <div className="">
                 {/* Images or stuff here */}
@@ -82,7 +92,7 @@ export function SlidesPortfolio({
       </ParallaxSection>
       <ParallaxSection sectionID="about">
         <div className="container ">
-          <main className="flex h-screen w-full items-center justify-center flex-col">
+          <main className="flex min-h-screen w-full items-center justify-center flex-col">
             <div className="flex min-w-full flex-col items-center justify-between xl:flex-row">
               <div className="flex flex-col justify-center items-center max-w-md">
                 <div className=" text-8xl">
@@ -202,8 +212,8 @@ export function SlidesPortfolio({
                 </div>
                 <h1 className="text-medium font-sans text-left my-2">
                   Design inspired by{" "}
-                  <a href="https://me.jooo.tech/" className="underline">
-                    Jooo
+                  <a href="https://peet.ws/" className="underline">
+                    Peet
                   </a>
                 </h1>
               </div>
@@ -211,6 +221,99 @@ export function SlidesPortfolio({
           </main>
         </div>
       </ParallaxSection>
-    </ReactPageScroller>
+      <ParallaxSection sectionID="projects">
+        <div className="container">
+          <main className="flex min-h-screen w-full items-center justify-center flex-col">
+            <div className="flex min-w-full flex-col items-center justify-between">
+              <div className="flex flex-col justify-center items-center max-w-md mb-2">
+                <div className=" text-8xl">
+                  <AiFillProject />
+                </div>
+                <p className="font-bold text-2xl md:text-4xl">
+                  {about.projects.title}
+                </p>
+                <p className="text-medium text-gray-500">
+                  {about.projects.description}
+                </p>
+              </div>
+              <Divider />
+
+              <div className="flex flex-col justify-start ">
+                <div className="gap-2 grid grid-cols-1 md:grid-cols-3">
+                  {about.projects.items.slice(0, 3).map((project) => (
+                    <Card key={project.name} className="m-2 max-w-sm">
+                      <CardHeader>
+                        {project.image && (
+                          <Image
+                            src={project.image}
+                            width={32}
+                            height={32}
+                            alt="Cool blury Pat"
+                            className=" shadow-2xl rounded-lgs"
+                          />
+                        )}
+                        <h4 className={project.image && "ml-2"}>
+                          {project.name}
+                        </h4>
+                      </CardHeader>
+                      <Divider />
+                      <CardBody>
+                        <div className="flex flex-row justify-center items-center mb-4">
+                          <p>{project.description}</p>
+                        </div>
+                        <div className="flex flex-row  items-center gap-2">
+                          {project.tools.map((tool) => (
+                            <div className="flex" key={tool[1]}>
+                              <Tooltip content={tool[1]} placement="bottom">
+                                <Image
+                                  src={`https://skillicons.dev/icons?i=${tool[0]}`}
+                                  className="w-6 h-6 object-contain rounded-none"
+                                  alt={`icon for ${tool[1]}`}
+                                />
+                              </Tooltip>
+                            </div>
+                          ))}
+                        </div>
+                      </CardBody>
+                      <CardFooter>
+                        {project.links.map((link) => (
+                          <Tooltip
+                            content={link.name}
+                            key={link.url}
+                            placement="bottom"
+                          >
+                            <Button
+                              className="bg-transparent text-xl  hover:text-slate-600"
+                              key={link.name}
+                              isIconOnly
+                              onClick={() => window.open(link.url, "_blank")}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d={link.icon} />
+                              </svg>
+                            </Button>
+                          </Tooltip>
+                        ))}
+                      </CardFooter>
+                    </Card>
+                  ))}
+                </div>
+                <Button
+                  className="m-2 text-medium"
+                  onClick={() => void toast.warning("Coming soon")}
+                >
+                  Show more
+                </Button>
+              </div>
+            </div>
+          </main>
+        </div>
+      </ParallaxSection>
+    </PageScrollHandler>
   );
 }

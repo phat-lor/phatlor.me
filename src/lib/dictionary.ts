@@ -29,6 +29,21 @@ export interface LanguageDictionary {
         todo: [string, string][];
       };
     };
+    projects: {
+      title: string;
+      description: string;
+      items: {
+        name: string;
+        description: string;
+        image?: string;
+        links: {
+          name: string;
+          url: string;
+          icon: string;
+        }[];
+        tools: [string, string][];
+      }[];
+    };
   };
 
   metadata: {

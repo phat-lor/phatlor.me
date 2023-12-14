@@ -1,7 +1,5 @@
 "use client";
 
-import { SectionContainer } from "react-page-scroller";
-
 export function ParallaxSection({
   children,
   sectionID,

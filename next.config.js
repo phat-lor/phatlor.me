@@ -1,4 +1,24 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+const NextJSObfuscatorPlugin = require("nextjs-obfuscator");
 
-module.exports = nextConfig;
+const nextConfig = {
+  webpack: (config, { dev }) => {
+    if (!dev) {
+      config.plugins.push(
+        new NextJSObfuscatorPlugin(
+          {
+            ...nextjsoptions,
+          },
+          {
+            obfuscateFiles: {
+              app: true,
+              pages: true,
+            },
+            log: true,
+          }
+        )
+      );
+    }
+
+    return config;
+  },
+};
