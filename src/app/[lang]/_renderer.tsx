@@ -32,7 +32,7 @@ export function SlidesPortfolio({
     console.log(currentPage);
   }, [currentPage]);
   return (
-    <PageScrollHandler forceScroll={true}>
+    <PageScrollHandler>
       <ParallaxSection sectionID="home">
         <div className="container">
           <main className="flex min-h-screen w-full items-center justify-center flex-col">
