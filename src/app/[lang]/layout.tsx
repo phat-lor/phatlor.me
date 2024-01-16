@@ -1,13 +1,12 @@
 import "@/styles/globals.css";
 
 import { Inter } from "next/font/google";
-import { cookies } from "next/headers";
 
 import { Providers } from "../providers";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import { getDictionary } from "@/lib/dictionary";
 import { type Locale } from "@/i18n.config";
-import { Suspense } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,11 +56,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`font-sans ${inter.variable}`}>
-        <Providers>
-          {/* <TRPCReactProvider cookies={cookies().toString()}> */}
-          {children}
-          {/* </TRPCReactProvider> */}
-        </Providers>
+        <Providers>{children}</Providers>
+        <Analytics />
       </body>
     </html>
   );
