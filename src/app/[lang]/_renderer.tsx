@@ -147,100 +147,90 @@ export function SlidesPortfolio({
                 </h1>
                 <div className="flex flex-row flex-wrap justify-start">
                   <ul className="flex list-none gap-2 mb-2">
-                    {/* Programming Languages */}
-                    <li>
-                      <b className="text-start">Languages</b>
+                    <li className="flex flex-col">
+                      <b className="text-start">Languges</b>
                       <ul>
                         {about.skills.items.programming_languages.map(
                           (skill) => (
-                            <li key={skill[1]}>
-                              <div className="flex m-2 items-center align-middle justify-start">
-                                <Image
-                                  src={`https://skillicons.dev/icons?i=${skill[0]}`}
-                                  className="w-6 h-6 object-contain rounded-none"
-                                  width={1}
-                                  height={1}
-                                  alt={`icon for ${skill[1]}`}
-                                />
-                                <p className="ml-2">{skill[1]}</p>
-                              </div>
-                            </li>
+                            <div
+                              className="flex m-2 items-center align-middle justify-start"
+                              key={skill[1]}
+                            >
+                              <Image
+                                src={`https://skillicons.dev/icons?i=${skill[0]}`}
+                                className="w-6 h-6 object-contain rounded-none"
+                                width={1}
+                                height={1}
+                                alt={`icon for ${skill[1]}`}
+                              />
+                              <p className="ml-2">{skill[1]}</p>
+                            </div>
                           )
                         )}
                       </ul>
                     </li>
-
-                    {/* Frameworks */}
-                    <li>
+                    <li className="flex flex-col">
                       <b className="text-start">Frameworks</b>
                       <ul>
                         {about.skills.items.frameworks.map((skill) => (
-                          <li key={skill[1]}>
-                            <div className="flex m-2 items-center align-middle justify-start">
-                              <Image
-                                src={`https://skillicons.dev/icons?i=${skill[0]}`}
-                                className="w-6 h-6 object-contain rounded-none"
-                                alt={`icon for ${skill[1]}`}
-                                width={1}
-                                height={1}
-                              />
-                              <p className="ml-2">{skill[1]}</p>
-                            </div>
-                          </li>
+                          <div
+                            className="flex m-2 items-center align-middle justify-start"
+                            key={skill[1]}
+                          >
+                            <Image
+                              src={`https://skillicons.dev/icons?i=${skill[0]}`}
+                              className="w-6 h-6 object-contain rounded-none"
+                              alt={`icon for ${skill[1]}`}
+                              width={1}
+                              height={1}
+                            />
+                            <p className="ml-2">{skill[1]}</p>
+                          </div>
                         ))}
                       </ul>
                     </li>
 
-                    {/* Tools */}
-                    <li>
+                    <li className="flex flex-col">
                       <b className="text-start">Tools</b>
                       <ul>
                         {about.skills.items.tools.map((skill) => (
-                          <li key={skill[1]}>
-                            <div className="flex m-2 items-center align-middle justify-start">
-                              <Image
-                                src={`https://skillicons.dev/icons?i=${skill[0]}`}
-                                className="w-6 h-6 object-contain rounded-none"
-                                alt={`icon for ${skill[1]}`}
-                                width={1}
-                                height={1}
-                              />
-                              <p className="ml-2">{skill[1]}</p>
-                            </div>
-                          </li>
+                          <div
+                            className="flex m-2 items-center align-middle justify-start"
+                            key={skill[1]}
+                          >
+                            <Image
+                              src={`https://skillicons.dev/icons?i=${skill[0]}`}
+                              className="w-6 h-6 object-contain rounded-none"
+                              alt={`icon for ${skill[1]}`}
+                              width={1}
+                              height={1}
+                            />
+                            <p className="ml-2">{skill[1]}</p>
+                          </div>
                         ))}
                       </ul>
-                    </li>
 
-                    {/* Interested */}
-                    <li>
-                      <b className="text-start">Interested</b>
+                      <b className="text-start">Intrested</b>
                       <ul>
                         {about.skills.items.todo.map((skill) => (
-                          <li key={skill[1]}>
-                            <div className="flex m-2 items-center align-middle justify-start">
-                              <Image
-                                src={`https://skillicons.dev/icons?i=${skill[0]}`}
-                                className="w-6 h-6 object-contain rounded-none"
-                                alt={`icon for ${skill[1]}`}
-                                width={1}
-                                height={1}
-                              />
-                              <p className="ml-2">{skill[1]}</p>
-                            </div>
-                          </li>
+                          <div
+                            className="flex m-2 items-center align-middle justify-start"
+                            key={skill[1]}
+                          >
+                            <Image
+                              src={`https://skillicons.dev/icons?i=${skill[0]}`}
+                              className="w-6 h-6 object-contain rounded-none"
+                              alt={`icon for ${skill[1]}`}
+                              width={1}
+                              height={1}
+                            />
+                            <p className="ml-2">{skill[1]}</p>
+                          </div>
                         ))}
                       </ul>
                     </li>
                   </ul>
                 </div>
-
-                <h1 className="text-medium font-sans text-left my-2">
-                  Design inspired by{" "}
-                  <a href="https://peet.ws/" className="underline">
-                    Peet
-                  </a>
-                </h1>
               </div>
             </div>
           </main>
