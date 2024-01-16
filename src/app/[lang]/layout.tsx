@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import { getDictionary } from "@/lib/dictionary";
 import { type Locale } from "@/i18n.config";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -58,6 +59,7 @@ export default function RootLayout({
       <body className={`font-sans ${inter.variable}`}>
         <Providers>{children}</Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
