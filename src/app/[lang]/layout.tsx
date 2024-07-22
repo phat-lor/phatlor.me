@@ -10,57 +10,57 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
+	subsets: ["latin"],
+	variable: "--font-sans",
 });
 type Props = {
-  params: { lang: string };
+	params: { lang: string };
 };
 export async function generateMetadata({
-  params,
+	params,
 }: Props): // parent: ResolvingMetadata,
 Promise<Metadata> {
-  // read route params
-  const lang = params.lang as Locale;
-  const { metadata } = await getDictionary(lang);
+	// read route params
+	const lang = params.lang as Locale;
+	const { metadata } = await getDictionary(lang);
 
-  return {
-    title: metadata.title,
-    description: metadata.description,
-    metadataBase: new URL("https://fastport.page"),
-    alternates: {
-      canonical: "/",
-      languages: {
-        "en-US": "/en",
-        "th-TH": "/th",
-      },
-    },
-    twitter: {
-      card: "summary",
-      site: "@fastport",
-      images: metadata.twitter.images,
-    },
-    openGraph: {
-      type: "website",
-      locale: metadata.openGraph.locale,
-      url: "https://fastport.page",
-      siteName: "Fastport",
-    },
-  };
+	return {
+		title: metadata.title,
+		description: metadata.description,
+		metadataBase: new URL("https://phatlor.me"),
+		alternates: {
+			canonical: "/",
+			languages: {
+				"en-US": "/en",
+				"th-TH": "/th",
+			},
+		},
+		twitter: {
+			card: "summary",
+			site: "@fastport",
+			images: metadata.twitter.images,
+		},
+		openGraph: {
+			type: "website",
+			locale: metadata.openGraph.locale,
+			url: "https://phatlor.me",
+			siteName: "Phat Lorthammakun",
+		},
+	};
 }
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" className="dark">
-      <body className={`font-sans ${inter.variable}`}>
-        <Providers>{children}</Providers>
-        <Analytics />
-        <SpeedInsights />
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en" className="dark">
+			<body className={`font-sans ${inter.variable}`}>
+				<Providers>{children}</Providers>
+				<Analytics />
+				<SpeedInsights />
+			</body>
+		</html>
+	);
 }

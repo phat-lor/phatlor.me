@@ -43,7 +43,7 @@ export function SlidesPortfolio({
 		console.log(currentPage);
 	}, [currentPage]);
 	return (
-		<PageScrollHandler>
+		<>
 			{/* <ParallaxSection sectionID="home">
         <div className="container">
           <main className="flex min-h-screen w-full items-center justify-center flex-col">
@@ -101,139 +101,137 @@ export function SlidesPortfolio({
           </main>
         </div>
       </ParallaxSection> */}
-			<ParallaxSection sectionID="about">
-				<div className="container ">
-					<main className="flex min-h-screen w-full items-center justify-center flex-col">
-						<div className="flex min-w-full flex-col items-center justify-between xl:flex-row">
-							<div className="flex flex-col justify-center items-center max-w-md">
-								<div className=" text-8xl">
-									<FaCode />
-								</div>
-								<p className="font-bold text-2xl md:text-4xl">{about.name}</p>
-								<p className="text-medium text-gray-500">{about.city}</p>
-								<Separator />
-								<div className="flex flex-row justify-center items-center">
-									{about.links.map((link) => (
-										<Button
-											className="m-2 bg-transparent text-2xl hover:bg-transparent  hover:fill-slate-700 fill-white"
-											key={link.name}
-											// isIconOnly
-											onClick={() => window.open(link.url, "_blank")}
-											aria-label={link.name + " button"}
-										>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												width="24"
-												height="24"
-												viewBox="0 0 24 24"
-											>
-												<path d={link.icon} />
-											</svg>
-										</Button>
-									))}
-								</div>
+			{/* <ParallaxSection sectionID="about"> */}
+			<div className="container ">
+				<main className="flex min-h-screen w-full items-center justify-center flex-col">
+					<div className="flex min-w-full flex-col items-center justify-between xl:flex-row">
+						<div className="flex flex-col justify-center items-center max-w-md">
+							<div className=" text-8xl">
+								<FaCode />
 							</div>
-							<div className="flex flex-col max-w-xl justify-start ">
-								<h1 className="text-xl font-bold text-left mb-2">
-									{about.background.title}
-								</h1>
-								<p className="text-gray-500 break-normal text-left mb-2">
-									{about.background.description}
-								</p>
-								<h1 className="text-xl font-bold text-left my-2">
-									{about.skills.title}
-								</h1>
-								<div className="flex flex-row flex-wrap justify-start">
-									<ul className="flex list-none gap-2 mb-2">
-										<li className="flex flex-col">
-											<b className="text-start">Languges</b>
-											<ul>
-												{about.skills.items.programming_languages.map(
-													(skill) => (
-														<div
-															className="flex m-2 items-center align-middle justify-start"
-															key={skill[1]}
-														>
-															<Image
-																src={`https://skillicons.dev/icons?i=${skill[0]}`}
-																className="w-6 h-6 object-contain rounded-none"
-																width={1}
-																height={1}
-																alt={`icon for ${skill[1]}`}
-															/>
-															<p className="ml-2">{skill[1]}</p>
-														</div>
-													)
-												)}
-											</ul>
-										</li>
-										<li className="flex flex-col">
-											<b className="text-start">Frameworks</b>
-											<ul>
-												{about.skills.items.frameworks.map((skill) => (
-													<div
-														className="flex m-2 items-center align-middle justify-start"
-														key={skill[1]}
-													>
-														<Image
-															src={`https://skillicons.dev/icons?i=${skill[0]}`}
-															className="w-6 h-6 object-contain rounded-none"
-															alt={`icon for ${skill[1]}`}
-															width={1}
-															height={1}
-														/>
-														<p className="ml-2">{skill[1]}</p>
-													</div>
-												))}
-											</ul>
-										</li>
-
-										<li className="flex flex-col">
-											<b className="text-start">Tools</b>
-											<ul>
-												{about.skills.items.tools.map((skill) => (
-													<div
-														className="flex m-2 items-center align-middle justify-start"
-														key={skill[1]}
-													>
-														<Image
-															src={`https://skillicons.dev/icons?i=${skill[0]}`}
-															className="w-6 h-6 object-contain rounded-none"
-															alt={`icon for ${skill[1]}`}
-															width={1}
-															height={1}
-														/>
-														<p className="ml-2">{skill[1]}</p>
-													</div>
-												))}
-											</ul>
-
-											<b className="text-start">Intrested</b>
-											<ul>
-												{about.skills.items.todo.map((skill) => (
-													<div
-														className="flex m-2 items-center align-middle justify-start"
-														key={skill[1]}
-													>
-														<Image
-															src={`https://skillicons.dev/icons?i=${skill[0]}`}
-															className="w-6 h-6 object-contain rounded-none"
-															alt={`icon for ${skill[1]}`}
-															width={1}
-															height={1}
-														/>
-														<p className="ml-2">{skill[1]}</p>
-													</div>
-												))}
-											</ul>
-										</li>
-									</ul>
-								</div>
+							<p className="font-bold text-2xl md:text-4xl">{about.name}</p>
+							<p className="text-medium text-gray-500">{about.city}</p>
+							<Separator />
+							<div className="flex flex-row justify-center items-center">
+								{about.links.map((link) => (
+									<Button
+										className="m-2 bg-transparent text-2xl hover:bg-transparent  hover:fill-slate-700 fill-white"
+										key={link.name}
+										// isIconOnly
+										onClick={() => window.open(link.url, "_blank")}
+										aria-label={link.name + " button"}
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+										>
+											<path d={link.icon} />
+										</svg>
+									</Button>
+								))}
 							</div>
 						</div>
-					</main>
-				</div>
-			</ParallaxSection>
+						<div className="flex flex-col max-w-xl justify-start ">
+							<h1 className="text-xl font-bold text-left mb-2">
+								{about.background.title}
+							</h1>
+							<p className="text-gray-500 break-normal text-left mb-2">
+								{about.background.description}
+							</p>
+							<h1 className="text-xl font-bold text-left my-2">
+								{about.skills.title}
+							</h1>
+							<div className="flex flex-row flex-wrap justify-start">
+								<ul className="flex list-none gap-2 mb-2">
+									<li className="flex flex-col">
+										<b className="text-start">Languges</b>
+										<ul>
+											{about.skills.items.programming_languages.map((skill) => (
+												<div
+													className="flex m-2 items-center align-middle justify-start"
+													key={skill[1]}
+												>
+													<Image
+														src={`https://skillicons.dev/icons?i=${skill[0]}`}
+														className="w-6 h-6 object-contain rounded-none"
+														width={1}
+														height={1}
+														alt={`icon for ${skill[1]}`}
+													/>
+													<p className="ml-2">{skill[1]}</p>
+												</div>
+											))}
+										</ul>
+									</li>
+									<li className="flex flex-col">
+										<b className="text-start">Frameworks</b>
+										<ul>
+											{about.skills.items.frameworks.map((skill) => (
+												<div
+													className="flex m-2 items-center align-middle justify-start"
+													key={skill[1]}
+												>
+													<Image
+														src={`https://skillicons.dev/icons?i=${skill[0]}`}
+														className="w-6 h-6 object-contain rounded-none"
+														alt={`icon for ${skill[1]}`}
+														width={1}
+														height={1}
+													/>
+													<p className="ml-2">{skill[1]}</p>
+												</div>
+											))}
+										</ul>
+									</li>
+
+									<li className="flex flex-col">
+										<b className="text-start">Tools</b>
+										<ul>
+											{about.skills.items.tools.map((skill) => (
+												<div
+													className="flex m-2 items-center align-middle justify-start"
+													key={skill[1]}
+												>
+													<Image
+														src={`https://skillicons.dev/icons?i=${skill[0]}`}
+														className="w-6 h-6 object-contain rounded-none"
+														alt={`icon for ${skill[1]}`}
+														width={1}
+														height={1}
+													/>
+													<p className="ml-2">{skill[1]}</p>
+												</div>
+											))}
+										</ul>
+
+										<b className="text-start">Intrested</b>
+										<ul>
+											{about.skills.items.todo.map((skill) => (
+												<div
+													className="flex m-2 items-center align-middle justify-start"
+													key={skill[1]}
+												>
+													<Image
+														src={`https://skillicons.dev/icons?i=${skill[0]}`}
+														className="w-6 h-6 object-contain rounded-none"
+														alt={`icon for ${skill[1]}`}
+														width={1}
+														height={1}
+													/>
+													<p className="ml-2">{skill[1]}</p>
+												</div>
+											))}
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</main>
+			</div>
+			{/* </ParallaxSection> */}
 			{/* <ParallaxSection sectionID="projects">
         <div className="container">
           <main className="flex min-h-screen w-full items-center justify-center flex-col">
@@ -363,6 +361,6 @@ export function SlidesPortfolio({
           </main>
         </div>
       </ParallaxSection> */}
-		</PageScrollHandler>
+		</>
 	);
 }
