@@ -227,10 +227,18 @@ export function SlidesPortfolio({
 									</li>
 								</ul>
 							</div>
+							<p>
+								This website is incompleate if you want to see more please
+								visite my legacy website
+								<a className="underline" href="https://legacy.phatlor.me">
+									here
+								</a>
+							</p>
 						</div>
 					</div>
 				</main>
 			</div>
+
 			{/* </ParallaxSection> */}
 			{/* <ParallaxSection sectionID="projects">
         <div className="container">
