@@ -229,7 +229,7 @@ export function SlidesPortfolio({
 							</div>
 							<p>
 								This website is incompleate if you want to see more please
-								visite my legacy website
+								visite my legacy website{" "}
 								<a className="underline" href="https://legacy.phatlor.me">
 									here
 								</a>
